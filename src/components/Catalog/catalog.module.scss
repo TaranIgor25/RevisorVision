@@ -1,0 +1,17 @@
+@import '../../styles/mixins';
+
+.ul {
+  width: 100%;
+  list-style-type: none;
+  font-size: 22px;
+  line-height: 130%
+}
+
+.li {
+  @include liMix;
+}
+
+.close {
+  background-image: url(../../../public/assets/images/Close.png);
+}
+

@@ -1,0 +1,32 @@
+.favorWrap {
+  display: flex;
+  justify-content: end;
+  width: 150px;
+  height: 150px;
+ }
+
+ .favoritesWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 206px;
+ }
+
+
+ .illustration {
+  width: 264px;
+  height: 198px;
+ }
+
+ .h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 32px 0px 8px 0px;
+ }
+
+
+ .description {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+ }

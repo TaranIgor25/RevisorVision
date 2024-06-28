@@ -1,0 +1,12 @@
+@import '../../../styles/mixins';
+
+.li {
+  @include liMix;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.loaderWrap{
+  @include loaderWrap;
+  height: 794px;
+}

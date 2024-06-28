@@ -1,0 +1,54 @@
+.wrap {
+  width: 534px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 42px;
+  margin: 56px 0px 12px 0px;
+}
+
+.active{
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background: url(../../../public/assets/images/FavActive.png) no-repeat;
+  margin: 8px;
+ }
+
+.inactive {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background: url(../../../public/assets/images/FavInactive.png) no-repeat;
+  margin: 8px;
+ }
+
+.tittle {
+  font-size: 14px;  
+  line-height: 150%;
+  color: #787878;
+  font-weight: 400;
+}
+
+ .illustration {
+  width: 264px;
+  height: 198px;
+ }
+
+ .favoritesWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 206px;
+ }
+
+ .h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 32px 0px 8px 0px;
+ }
+
+ .description {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+ }

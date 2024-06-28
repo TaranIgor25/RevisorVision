@@ -1,0 +1,22 @@
+.active{
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background: url(../../../../public/assets/images/FavActive.png) no-repeat;
+  margin: 8px;
+ }
+
+.inactive {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background: url(../../../../public/assets/images/FavInactive.png) no-repeat;
+  margin: 8px;
+ }
+
+ .favorWrap {
+  display: flex;
+  justify-content: end;
+  width: 150px;
+  height: 150px;
+ }
