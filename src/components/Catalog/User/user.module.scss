@@ -7,3 +7,7 @@
 .loaderWrap {
   @include loaderWrap;
 }
+
+.close {
+  background-image: url(../../../../public/assets/images/Close.png);
+}

@@ -1,36 +1,33 @@
 import React, { useEffect, useState } from "react";
-
-import getData from "../../services/fetchApi";
-
-import { IAlbums, IUser } from "../../types/types&interfaces";
 import { CircularProgress } from "@mui/material";
 
+import { getAlbumsRequest, getUsersRequest } from "../../services/fetchApi";
+import { IAlbums, IUser } from "../../types/typesAndInterfaces";
+import User from "./User";
+
 import style from "./catalog.module.scss";
-import User from "./User/User";
 
 function Catalog() {
-  const [users, setUsers] = useState<IUser[] | any>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
   const [albums, setAlbums] = useState<IAlbums[]>([]);
-
   const [isLoadingAlbum, setIsLoadingAlbum] = useState<boolean>(false);
+  const [isOpenAlbum, setIsOpenAlbum] = useState<string>("");
+
+  const loading = users.length === 0;
 
   useEffect(() => {
     getUserData();
   }, []);
 
   async function getUserData() {
-    try {
-      const userData: IUser[] = await getData("Users");
-      setUsers(userData);
-    } catch (error: any) {
-      return setUsers(error.message);
-    }
+    const userData = await getUsersRequest();
+    setUsers(userData);
   }
 
   const getUserAlbum = async (userId: string) => {
     setAlbums([]);
     setIsLoadingAlbum(true);
-    const userAlbum: IAlbums[] = await getData(`Albumss/${userId}`);
+    const userAlbum = await getAlbumsRequest(userId);
     setAlbums(userAlbum);
     setIsLoadingAlbum(false);
   };
@@ -38,6 +35,8 @@ function Catalog() {
   const userRender = users.map((user: IUser) => {
     return (
       <User
+        isOpenAlbum={isOpenAlbum}
+        setIsOpenAlbum={setIsOpenAlbum}
         key={user.id}
         getUserAlbum={getUserAlbum}
         isLoadingAlbum={isLoadingAlbum}
@@ -47,16 +46,14 @@ function Catalog() {
     );
   });
 
-  return users.length === 0 ? (
+  return loading ? (
     <div className={style.loaderWrap}>
       <CircularProgress />
     </div>
   ) : (
-    <>
-      <ul onClick={(event) => event.stopPropagation()} className={style.ul}>
-        {userRender}
-      </ul>
-    </>
+    <ul onClick={(event) => event.stopPropagation()} className={style.ul}>
+      {userRender}
+    </ul>
   );
 }
 

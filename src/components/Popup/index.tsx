@@ -1,7 +1,8 @@
 import React from "react";
-import { IPopupProps } from "../../types/types&interfaces";
-import { useAppDispatch } from "../../hooks/redux";
+
+import { IPopupProps } from "../../types/typesAndInterfaces";
 import { openClosePopup } from "../../store/popupSlice";
+import { useAppDispatch } from "../../store/hooks/redux";
 
 import style from "./popup.module.scss";
 

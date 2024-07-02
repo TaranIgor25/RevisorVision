@@ -1,13 +1,18 @@
 import React from "react";
 
-import { IPhotoProps, IPhotos } from "../../../types/types&interfaces";
+import { IPhotoProps, IPhotos } from "../../../types/typesAndInterfaces";
 import { addFavorite, removeFavorite } from "../../../store/favoriteSlice";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { openClosePopup } from "../../../store/popupSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks/redux";
 
 import style from "./photo.module.scss";
 
-function Photo({ photo, isFavoritePage, setPopupProps, favoritesObj }: IPhotoProps) {
+function Photo({
+  photo,
+  isFavoritePage,
+  setPopupProps,
+  favoritesObj,
+}: IPhotoProps) {
   const favoritesArr = useAppSelector(
     (state) => state.favoriteReducer.favoritesArr
   );
@@ -23,12 +28,17 @@ function Photo({ photo, isFavoritePage, setPopupProps, favoritesObj }: IPhotoPro
       dispatch(removeFavorite(findElIndex));
     }
   };
+
+  const activeInactiveStyle = favoritesObj[photo.id]
+    ? style.active
+    : style.inactive;
+
   return (
     <div className={style.photoWrap}>
       <div className={style.favorWrap}>
         <span
           onClick={() => handleChange(photo)}
-          className={favoritesObj[photo.id] ? style.active : style.inactive}
+          className={activeInactiveStyle}
         />
         <img
           onClick={() => {

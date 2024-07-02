@@ -1,12 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface IInitialState {
+  popupOpen: boolean;
+}
+
+const initialState: IInitialState = {
+  popupOpen: false,
+};
+
 const popupSlice = createSlice({
   name: "favorites",
-  initialState: {
-    popupOpen: false,
-  },
+  initialState,
   reducers: {
-    openClosePopup(state: any, action: PayloadAction<boolean>) {
+    openClosePopup(state: IInitialState, action: PayloadAction<boolean>) {
       switch (action.payload) {
         case true:
           state.popupOpen = true;

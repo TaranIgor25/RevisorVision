@@ -28,10 +28,6 @@ export type PhotosProp = {
   isFavoritePage?: boolean;
 };
 
-export interface IInitialState {
-  favoritesArr: IPhotos[];
-}
-
 export interface IPhotosIdObj {
   [key: string]: boolean;
 }
@@ -52,6 +48,8 @@ export interface IAlbumProps {
   album: IAlbums;
   isLoadingPhoto: boolean;
   getAlbumImg: (albumId: string) => Promise<void>;
+  isPhotosOpen: string;
+  setIsPhotosOpen: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type IPage = "/" | "/favorites";
@@ -61,4 +59,6 @@ export interface IUserProps {
   albums: IAlbums[];
   isLoadingAlbum: boolean;
   getUserAlbum: (userId: string) => Promise<void>;
+  isOpenAlbum: string;
+  setIsOpenAlbum: React.Dispatch<React.SetStateAction<string>>;
 }

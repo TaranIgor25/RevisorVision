@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IInitialState, IPhotos } from "../types/types&interfaces";
+import { IPhotos } from "../types/typesAndInterfaces";
+
+export interface IInitialState {
+  favoritesArr: IPhotos[];
+}
 
 const initialState: IInitialState = {
   favoritesArr: [],
@@ -9,10 +13,10 @@ const favoriteSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFavorite(state: any, action: PayloadAction<IPhotos>) {
+    addFavorite(state: IInitialState, action: PayloadAction<IPhotos>) {
       state.favoritesArr.push(action.payload);
     },
-    removeFavorite(state: any, action: PayloadAction<number>) {
+    removeFavorite(state: IInitialState, action: PayloadAction<number>) {
       state.favoritesArr.splice(action.payload, 1);
     },
   },

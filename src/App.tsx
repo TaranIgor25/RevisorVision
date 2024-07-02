@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Catalog from "./components/Catalog/Catalog";
-import Layout from "./components/Layout/Layout";
-import Photos from "./components/Photos/Photos";
+import Catalog from "./components/Catalog";
+import Layout from "./components/Layout";
+import Photos from "./components/Photos";
 
-import { useAppSelector } from "./hooks/redux";
+import { useAppSelector } from "./store/hooks/redux";
+
 
 
 function App() {

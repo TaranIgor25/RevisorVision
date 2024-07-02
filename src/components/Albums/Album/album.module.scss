@@ -1,6 +1,6 @@
 @import '../../../styles/mixins';
 
-.li {
+.open {
   @include liMix;
   font-size: 18px;
   font-weight: 400;
@@ -9,4 +9,11 @@
 .loaderWrap{
   @include loaderWrap;
   height: 794px;
+}
+
+.close {
+  @include liMix;
+  font-size: 18px;
+  font-weight: 400;
+  background-image: url(../../../../public/assets/images/Close.png);
 }
